@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .clock {
+        position: relative;
+        background-image: url("img/Clock.jpg");
+        width: 500px;
+        height: 500px;
+        background-size: contain;
+      }
+      .h-hand {
+        position: absolute;
+        left: 238px;
+        top: 154px;
+        border-radius: 10px;
+        height: 105px;
+        width: 20px;
+        background-size: 27px 105px;
+        transform-origin: 50% 95%;
+        background-color: black;
+      }
+      .m-hand {
+        position: absolute;
+        left: 240px;
+        top: 80px;
+        border-radius: 10px;
+        height: 180px;
+        width: 20px;
+        background-size: 20px 180px;
+        transform-origin: 50% 95%;
+        background-color: rgb(98, 96, 96);
+      }
+      .s-hand {
+        position: absolute;
+        left: 237px;
+        top: 80px;
+        border-radius: 10px;
+        height: 180px;
+        width: 20px;
+        background-size: 30px 180px;
+        transform-origin: 45% 95%;
+        background-color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="clock">
+      <div class="h-hand" id="hour"></div>
+      <div class="m-hand" id="min"></div>
+      <div class="s-hand" id="sec"></div>
+    </div>
+    <script>
+      function clockInit() {
+        let date = new Date();
+        let time = [date.getHours(), date.getMinutes(), date.getSeconds()];
+        let clockDivs = [
+          document.getElementById("hour"),
+          document.getElementById("min"),
+          document.getElementById("sec"),
+        ];
+
+        let hour = time[1] / 2 + time[0] * 30;
+
+        clockDivs[0].style.transform = "rotate(" + hour + "deg)";
+        clockDivs[1].style.transform = "rotate(" + time[1] * 6 + "deg)";
+        clockDivs[2].style.transform = "rotate(" + time[2] * 6 + "deg)";
+      }
+      window.onload = function () {
+        clockInit();
+
+        setInterval(clockInit, 1000);
+      };
+    </script>
+  </body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #snackbar {
+        visibility: hidden;
+        min-width: 250px;
+        background-color: #1361b4;
+        color: #fff;
+        text-align: center;
+        border-radius: 2px;
+        padding: 16px;
+        position: fixed;
+        z-index: 1;
+        right: 1%;
+        bottom: 30px;
+      }
+      button {
+        background-color: rgb(141, 228, 164);
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        border: 0;
+        border-radius: 5px;
+        padding: 10px;
+        margin-top: 2%;
+        margin-left: 2%;
+      }
+      button:hover {
+        background-color: rgb(10, 188, 66);
+      }
+
+      #snackbar.show {
+        visibility: visible;
+      }
+    </style>
+  </head>
+  <body>
+    <button onclick="myFunction()">Click it</button>
+
+    <div id="snackbar">Some text some message..</div>
+
+    <script>
+      function myFunction() {
+        let snackbar = document.getElementById("snackbar");
+
+        snackbar.className = "show";
+
+        setTimeout(function () {
+          snackbar.className = snackbar.className.replace("show", "");
+        }, 3000);
+      }
+    </script>
+  </body>
+</html>
